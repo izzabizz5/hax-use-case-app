@@ -20,26 +20,15 @@ export class HaxUseCaseApp extends DDDSuper(I18NMixin(LitElement)) {
 
   constructor() {
     super();
-    this.title = "";
-    this.t = this.t || {};
-    this.t = {
-      ...this.t,
-      title: "Title",
-    };
-    this.registerLocalization({
-      context: this,
-      localesPath:
-        new URL("./locales/hax-use-case-app.ar.json", import.meta.url).href +
-        "/../",
-      locales: ["ar", "es", "hi", "zh"],
-    });
+    this.headerDescription = "This will say something like pick type journey. And then mention like two use cases that they can search for.";
   }
 
   // Lit reactive properties
   static get properties() {
     return {
       ...super.properties,
-      title: { type: String },
+      headerDescription: {type: String},
+
     };
   }
 
@@ -53,24 +42,90 @@ export class HaxUseCaseApp extends DDDSuper(I18NMixin(LitElement)) {
         background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
       }
-      .wrapper {
-        margin: var(--ddd-spacing-2);
-        padding: var(--ddd-spacing-4);
-      }
-      h3 span {
-        font-size: var(--hax-use-case-app-label-font-size, var(--ddd-font-size-s));
-      }
     `];
   }
 
   // Lit render the HTML
   render() {
     return html`
-<div class="wrapper">
-  <h3><span>${this.t.title}:</span> ${this.title}</h3>
-  <slot></slot>
-</div>`;
+    <div class="header">
+      <p>HaxLogo</p>
+      <p>Merlin</p>
+      <p>Search Sites</p>
+      <p>Login</p>
+    </div>
+    
+    <div class="page-header">
+      <h1>&lt; New Journey &lt;</h1>
+      <p>"${this.headerDescription}"</p>
+    </div>
+
+    <div class="filter-section">
+      <p>search bar</p>
+      <h3>Template</h3>
+      <button>Portfolio</button>
+      <button>Course</button>
+      <button>Resume</button>
+      <button>Blog</button>
+      <button>Research Website</button>
+      <h3>Favorites</h3>
+    </div>
+
+    <div class="filtered-items">
+      <a href="${this.memo}" target="_blank">
+        <use-case-card>
+          <img src="${this.imageURL}" alt="Image for ${this.title}">
+          <h3>${this.title}</h3>
+          <p><strong>Last Updated:</strong> ${this.updatedDate}</p>
+          <p>${this.description}</p>
+          <a href="${this.memo}" target="_blank">Memo --> </a>
+        </use-case-card>
+      </a>
+    </div>
+<`;
   }
+
+  updateFilters() {
+    const allTags = new Set();
+    this.useCases.forEach((useCase) => {
+      useCase.tags.forEach((tag) => allTags.add(tag));
+    });
+    this.filters = Array.from(allTags);
+  }
+
+  applyFilter(filter) {
+    this.filteredUseCases = this.useCases.filter((useCase) =>
+      useCase.tags.includes(filter)
+    );
+    this.activeUseCase = null;
+  }
+
+  resetFilters() {
+    this.filteredUseCases = [...this.useCases];
+    this.activeUseCase = null;
+  }
+
+  handleSearch(event) {
+    this.searchQuery = event.target.value.toLowerCase();
+    this.filteredUseCases = this.useCases.filter((useCase) =>
+      useCase.title.toLowerCase().includes(this.searchQuery)
+    );
+  }
+
+  selectUseCase(useCase) {
+    if (this.activeUseCase === useCase) {
+      this.activeUseCase = null;
+    } else {
+      this.activeUseCase = useCase;
+    }
+  }
+
+  continue() {
+    if (this.activeUseCase) {
+      alert(`Selected Use Case: ${this.activeUseCase.title}`);
+    }
+  }
+
 
   /**
    * haxProperties integration via file reference
