@@ -23,50 +23,64 @@ constructor() {
   }
 
   static get styles() {
-    return [super.styles,
-    css`
-      .card {
-        display: flex;
-        flex-direction: column;
-        border: var(--ddd-border-sm);
-        border-radius: var(--ddd-radius-md);
-        padding: var(--ddd-spacing-6);
-        background-color: var(--ddd-accent-3); 
-        color: var(--ddd-primary-4); 
-        box-shadow: var(--ddd-boxShadow-sm);
-        transition: transform 0.3s, box-shadow 0.3s;
-        text-decoration: none;
-      }
-      .card:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--ddd-boxShadow-md); 
-      }
-      .card h3 {
-        font-size: var(--ddd-font-size-s);
-        margin: 0 0 var(--ddd-spacing-2) 0;
-        color: var(--ddd-primary-4);
-      }
-      .card p {
-        font-size: var(--ddd-font-size-3xs);
-        margin: var(--ddd-spacing-2) 0;
-        line-height: var(--ddd-lh-150);
-        color: var(--ddd-primary-5); 
-      }
-      .card img {
-        max-width: 100%;
-        height: auto;
-        border-radius: var(--ddd-radius-sm);
-        margin-bottom: var(--ddd-spacing-4);
-      }
-      .card a {
-        color: var(--ddd-primary-8);
-        margin-right: var(--ddd-spacing-2);
-      }
-      .card a:hover,
-            a:focus {
-        color: var(--ddd-primary-8); 
-      }
-    `];
+    return [
+      super.styles,
+      css`
+        /* Cards */
+        .use-case-card {
+          background: var(--ddd-theme-default-white);
+          border-radius: var(--ddd-radius-md);
+          border: var(--ddd-border-xs) solid var(--ddd-primary-4);
+          box-shadow: var(--ddd-boxShadow-sm);
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: var(--ddd-spacing-4);
+          gap: var(--ddd-spacing-3);
+        }
+        .use-case-card img {
+          width: 100%;
+          height: 150px;
+          object-fit: cover;
+          background: var(--ddd-accent-2);
+        }
+        .use-case-card h3 {
+          font-size: var(--ddd-font-size-xxs);
+          font-weight: var(--ddd-font-weight-bold);
+          color: var(--ddd-primary-4);
+          margin: var(--ddd-spacing-2) 0 0 0;
+        }
+        .use-case-card p {
+          font-size: var(--ddd-font-size-3xs);
+          color: var(--ddd-primary-5);
+          line-height: var(--ddd-lh-150);
+          margin: 0 0 var(--ddd-spacing-4) 0;
+        }
+        .use-case-card a {
+          font-size: var(--ddd-font-size-3xs);
+          color: var(--ddd-theme-default-link);
+          text-decoration: none;
+          margin-bottom: var(--ddd-spacing-2);
+        }
+        .use-case-card a:hover {
+          text-decoration: underline;
+        }
+        .use-case-card button {
+          background-color: var(--ddd-primary-8);
+          color: var(--ddd-theme-default-white);
+          border: none;
+          border-radius: var(--ddd-radius-xs);
+          padding: var(--ddd-spacing-2) var(--ddd-spacing-4);
+          font-size: var(--ddd-font-size-3xs);
+          cursor: pointer;
+        }
+        .use-case-card button:hover {
+          background-color: var(--ddd-primary-6);
+        }
+      `,
+    ];
   }
 
   render() {
@@ -74,7 +88,6 @@ constructor() {
         <div class="card">
           <img src="${this.imageURL}" alt="Image for ${this.title}">
           <h3>${this.title}</h3>
-          <p><strong>Last Updated:</strong> ${this.updatedDate}</p>
           <p>${this.description}</p>
           <a href="${this.memo}" target="_blank">Memo --> </a>
       </div>
