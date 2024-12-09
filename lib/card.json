@@ -1,122 +1,231 @@
 {
-   "status": 200,
-   "data": [
-     {
+  "status": 200,
+  "item": [
+    {
       "id": "1",
-      "tag": ["Meow", "Wow"],
-      "title": "Card 1",
-      "description": "Very cool description",
-      "demo": "https://haxtheweb.org",
+      "tag": ["Course", "Portfolio"],
+      "title": "Minimal",
+      "image": "https://i.pinimg.com/1200x/4c/cd/de/4ccdde704ab0ee55aea9c5eb4a000e0d.jpg",
+      "description": "A sleek and minimalistic design with a focus on simplicity, clean lines, and ample white space.",
       "attributes": [
-        "easy reading",
-        "accessibility icon",
-        "little book icon for etext",
-        "dark reading"
+        {
+          "icon": "icons:book",
+          "label": "Easy Reading"
+        },
+        {
+          "icon": "book",
+          "label": "Accessible"
+        },
+        {
+          "icon": "book",
+          "label": "Dark Mode"
+        },
+        {
+          "icon": "book",
+          "label": "E-Text"
+        }
       ]
-     },
-     {
+    },
+    {
       "id": "2",
-      "tag": ["Meow", "Wow"],
-      "title": "Card 2",
-      "description": "Very cool description",
-      "demo": "https://haxtheweb.org",
+      "tag": ["Resume", "Blog"],
+      "title": "Futuristic",
+      "image": "https://i.pinimg.com/736x/91/11/0f/91110f54c48f7196cf9af376416aada5.jpg",
+      "description": "A cutting-edge, futuristic design featuring bold shapes, neon accents, and high-tech aesthetics.",
       "attributes": [
-        "easy reading",
-        "accessibility icon",
-        "little book icon for etext",
-        "dark reading"
+        {
+          "icon": "icons:book",
+          "label": "Sound Available"
+        },
+        {
+          "icon": "icons:book",
+          "label": "Reading Level 5"
+        },
+        {
+          "icon": "icons:book",
+          "label": "Dark Mode"
+        },
+        {
+          "icon": "icons:book",
+          "label": "E-Text"
+        }
       ]
-     },
-     {
+    },
+    {
       "id": "3",
-      "tag": ["Meow", "Wow"],
-      "title": "Card 3",
-      "description": "Very cool description",
-      "demo": "https://haxtheweb.org",
+      "tag": ["Portfolio", "Research Website"],
+      "title": "Joker",
+      "image": "https://i.pinimg.com/1200x/4c/cd/de/4ccdde704ab0ee55aea9c5eb4a000e0d.jpg",
+      "description": "A playful, mischievous design with bold colors and eccentric details to keep the audience entertained.",
       "attributes": [
-        "easy reading",
-        "accessibility icon",
-        "little book icon for etext",
-        "dark reading"
+        {
+          "icon": "icons:book",
+          "label": "Sound Available"
+        },
+        {
+          "icon": "icons:book",
+          "label": "Reading Level 5"
+        },
+        {
+          "icon": "icons:book",
+          "label": "Dark Mode"
+        },
+        {
+          "icon": "icons:book",
+          "label": "E-Text"
+        }
       ]
-     },
-     {
-      "id":"4",
-      "tag": ["Meow", "Wow"],
-      "title": "Card 4",
-      "description": "Very cool description",
-      "demo": "https://haxtheweb.org",
+    },
+    {
+      "id": "4",
+      "tag": ["Course", "Blog"],
+      "title": "Tropical",
+      "image": "https://i.pinimg.com/1200x/4c/cd/de/4ccdde704ab0ee55aea9c5eb4a000e0d.jpg",
+      "description": "A vibrant, tropical theme filled with bright, exotic colors, palm leaves, and sunny vibes.",
       "attributes": [
-        "easy reading",
-        "accessibility icon",
-        "little book icon for etext",
-        "dark reading"
+        {
+          "icon": "icons:book",
+          "label": "Sound Available"
+        },
+        {
+          "icon": "icons:book",
+          "label": "Reading Level 5"
+        },
+        {
+          "icon": "icons:book",
+          "label": "Dark Mode"
+        },
+        {
+          "icon": "icons:book",
+          "label": "E-Text"
+        }
       ]
-     },
-     {
-      "id": "5", 
-      "tag": ["Meow", "Wow"],
-      "title": "Card 5",
-      "description": "Very cool description",
-      "demo": "https://haxtheweb.org",
+    },
+    {
+      "id": "5",
+      "tag": ["Research Website", "Resume"],
+      "title": "Neon",
+      "image": "https://i.pinimg.com/1200x/4c/cd/de/4ccdde704ab0ee55aea9c5eb4a000e0d.jpg",
+      "description": "A bold, neon-inspired design featuring glowing colors and dynamic contrasts perfect for showcasing your work.",
       "attributes": [
-        "easy reading",
-        "accessibility icon",
-        "little book icon for etext",
-        "dark reading"
+        {
+          "icon": "icons:book",
+          "label": "Sound Available"
+        },
+        {
+          "icon": "icons:book",
+          "label": "Reading Level 5"
+        },
+        {
+          "icon": "icons:book",
+          "label": "Dark Mode"
+        },
+        {
+          "icon": "icons:book",
+          "label": "E-Text"
+        }
       ]
-     },
-     {
-      "id": "6", 
-      "tag": ["Meow", "Wow"],
-      "title": "Card 6",
-      "description": "Very cool description",
-      "demo": "https://haxtheweb.org",
+    },
+    {
+      "id": "6",
+      "tag": ["Portfolio", "Resume"],
+      "title": "Geometric",
+      "image": "https://i.pinimg.com/1200x/4c/cd/de/4ccdde704ab0ee55aea9c5eb4a000e0d.jpg",
+      "description": "A modern, geometric design that incorporates clean lines and abstract shapes for a professional, yet stylish look.",
       "attributes": [
-        "easy reading",
-        "accessibility icon",
-        "little book icon for etext",
-        "dark reading"
+        {
+          "icon": "icons:book",
+          "label": "Sound Available"
+        },
+        {
+          "icon": "icons:book",
+          "label": "Reading Level 5"
+        },
+        {
+          "icon": "icons:book",
+          "label": "Dark Mode"
+        },
+        {
+          "icon": "icons:book",
+          "label": "E-Text"
+        }
       ]
-     },
-     {
-      "id": "7", 
-      "tag": ["Meow", "Wow"],
-      "title": "Card 7",
-      "description": "Very cool description",
-      "demo": "https://haxtheweb.org",
+    },
+    {
+      "id": "7",
+      "tag": ["Blog", "Course"],
+      "title": "Carnival",
+      "image": "https://i.pinimg.com/1200x/4c/cd/de/4ccdde704ab0ee55aea9c5eb4a000e0d.jpg",
+      "description": "A fun and energetic carnival-inspired design with bright colors, festive elements, and an overall lively feel.",
       "attributes": [
-        "easy reading",
-        "accessibility icon",
-        "little book icon for etext",
-        "dark reading"
+        {
+          "icon": "icons:book",
+          "label": "Sound Available"
+        },
+        {
+          "icon": "icons:book",
+          "label": "Reading Level 5"
+        },
+        {
+          "icon": "icons:book",
+          "label": "Dark Mode"
+        },
+        {
+          "icon": "icons:book",
+          "label": "E-Text"
+        }
       ]
-     },
-     {
-      "id": "8", 
-      "tag": ["Meow", "Wow"],
-      "title": "Card 8",
-      "description": "Very cool description",
-      "demo": "https://haxtheweb.org",
+    },
+    {
+      "id": "8",
+      "tag": ["Research Website", "Course"],
+      "title": "Aurora",
+      "image": "https://i.pinimg.com/1200x/4c/cd/de/4ccdde704ab0ee55aea9c5eb4a000e0d.jpg",
+      "description": "Inspired by the aurora borealis, this theme features beautiful gradients, cool tones, and a calm, mystical vibe.",
       "attributes": [
-        "easy reading",
-        "accessibility icon",
-        "little book icon for etext",
-        "dark reading"
+        {
+          "icon": "icons:book",
+          "label": "Sound Available"
+        },
+        {
+          "icon": "icons:book",
+          "label": "Reading Level 5"
+        },
+        {
+          "icon": "icons:book",
+          "label": "Dark Mode"
+        },
+        {
+          "icon": "icons:book",
+          "label": "E-Text"
+        }
       ]
-     },
-     {
-      "id": "9", 
-      "tag": ["Meow", "Wow"],
-      "title": "Card 9",
-      "description": "Very cool description",
-      "demo": "https://haxtheweb.org",
+    },
+    {
+      "id": "9",
+      "tag": ["Portfolio", "Blog"],
+      "title": "Floral",
+      "image": "https://i.pinimg.com/1200x/4c/cd/de/4ccdde704ab0ee55aea9c5eb4a000e0d.jpg",
+      "description": "A delicate and elegant design filled with floral elements, soft pastels, and a romantic, serene atmosphere.",
       "attributes": [
-        "easy reading",
-        "accessibility icon",
-        "little book icon for etext",
-        "dark reading"
+        {
+          "icon": "icons:book",
+          "label": "Sound Available"
+        },
+        {
+          "icon": "icons:book",
+          "label": "Reading Level 5"
+        },
+        {
+          "icon": "icons:book",
+          "label": "Dark Mode"
+        },
+        {
+          "icon": "icons:book",
+          "label": "E-Text"
+        }
       ]
-     }
-   ]
- }
+    }
+  ]
+}
+

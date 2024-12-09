@@ -27,7 +27,7 @@ constructor() {
       super.styles,
       css`
         /* Cards */
-        .use-case-card {
+        .card {
           background: var(--ddd-theme-default-white);
           border-radius: var(--ddd-radius-md);
           border: var(--ddd-border-xs) solid var(--ddd-primary-4);
@@ -40,34 +40,35 @@ constructor() {
           padding: var(--ddd-spacing-4);
           gap: var(--ddd-spacing-3);
         }
-        .use-case-card img {
+        .card img {
           width: 100%;
-          height: 150px;
+          max-width: 150px;
+          max-height: 150px;
           object-fit: cover;
           background: var(--ddd-accent-2);
         }
-        .use-case-card h3 {
+        .card h3 {
           font-size: var(--ddd-font-size-xxs);
           font-weight: var(--ddd-font-weight-bold);
           color: var(--ddd-primary-4);
           margin: var(--ddd-spacing-2) 0 0 0;
         }
-        .use-case-card p {
+        .card p {
           font-size: var(--ddd-font-size-3xs);
           color: var(--ddd-primary-5);
           line-height: var(--ddd-lh-150);
           margin: 0 0 var(--ddd-spacing-4) 0;
         }
-        .use-case-card a {
+        .card a {
           font-size: var(--ddd-font-size-3xs);
           color: var(--ddd-theme-default-link);
           text-decoration: none;
           margin-bottom: var(--ddd-spacing-2);
         }
-        .use-case-card a:hover {
-          text-decoration: underline;
+        .card a:hover {
+          text-decoration: none;
         }
-        .use-case-card button {
+        .card button {
           background-color: var(--ddd-primary-8);
           color: var(--ddd-theme-default-white);
           border: none;
@@ -76,9 +77,11 @@ constructor() {
           font-size: var(--ddd-font-size-3xs);
           cursor: pointer;
         }
-        .use-case-card button:hover {
+        .card button:hover {
           background-color: var(--ddd-primary-6);
         }
+
+
       `,
     ];
   }
@@ -86,10 +89,15 @@ constructor() {
   render() {
     return html`
         <div class="card">
-          <img src="${this.imageURL}" alt="Image for ${this.title}">
+          <img src="${this.imageURL}">
           <h3>${this.title}</h3>
           <p>${this.description}</p>
-          <a href="${this.memo}" target="_blank">Memo --> </a>
+          <a href="${this.memo}" target="_blank">Memo -> </a>
+          <simple-icon>${this.attributes}</simple-icon>
+          <button>Select</button>
+          <button ?disabled="${!this.activeUseCase}" @click="${this.handleContinue}">
+          Continue
+          </button>
       </div>
     `;
   }
