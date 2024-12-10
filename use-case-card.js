@@ -9,6 +9,7 @@ constructor() {
     this.description = "";
     this.imageURL = "";
     this.demo = "";
+    this.cardAttributes = [];
   }
 
   static get properties() {
@@ -19,6 +20,7 @@ constructor() {
         description: { type: String },
         imageURL: { type: String },
         demo: { type: String },
+        cardAttributes: { type: Array }
     };
   }
 
@@ -28,10 +30,11 @@ constructor() {
       css`
         /* Cards */
         .card {
-        background: var(--ddd-theme-default-white);
         border-radius: var(--ddd-radius-md);
         border: var(--ddd-border-xs) solid var(--ddd-primary-4);
         box-shadow: var(--ddd-boxShadow-sm);
+        max-width: 375px;
+        max-height: 375px;
         overflow: hidden;
         display: flex;
         flex-direction: column;
@@ -42,9 +45,8 @@ constructor() {
         position: relative; /* Enables absolute positioning inside the card */
       }
       .card img {
-        width: 100%;
-        max-width: 150px;
-        max-height: 150px;
+        max-width: 200px;
+        max-height: 200px;
         object-fit: cover;
         background: var(--ddd-accent-2);
       }
@@ -92,12 +94,12 @@ constructor() {
 
   render() {
     return html`
-        <div class="card">
-          <img src="${this.imageURL}">
-          <h3>${this.title}</h3>
-          <p>${this.description}</p>
-          <a href="${this.demo}" target="_blank">Demo -> </a>
-          <simple-icon>${this.attributes}</simple-icon>
+      <div class="card">
+        <img src="${this.imageURL}">
+        <h3>${this.title}</h3>
+        <p>${this.description}</p>
+        <a href="${this.demo}" target="_blank">Demo -> </a>
+        ${this.cardAttributes.map((item) => html`<simple-icon-lite icon="${item.icon}" title="${item.title}"></simple-icon-lite>`)}
       </div>
     `;
   }

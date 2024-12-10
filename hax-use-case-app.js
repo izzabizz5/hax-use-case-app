@@ -17,7 +17,7 @@ export class HaxUseCaseApp extends DDDSuper(I18NMixin(LitElement)) {
     super();
     this.items = [];
     this.filteredItems = [];
-    this.activeUseCase = null; 
+    this.activeUseCase = false; 
     this.searchQuery = "";
     this.activeFilters = [];
     this.errorMessage = "";
@@ -35,7 +35,7 @@ export class HaxUseCaseApp extends DDDSuper(I18NMixin(LitElement)) {
       ...super.properties,
       items: { type: Array },
       filteredItems: { type: Array },
-      activeUseCase: { type: Object },
+      activeUseCase: { type: Boolean },
       searchQuery: { type: String },
       activeFilters: { type: Array },
       errorMessage: { type: String },
@@ -144,6 +144,8 @@ export class HaxUseCaseApp extends DDDSuper(I18NMixin(LitElement)) {
         }
         .card-grid a {
           text-decoration: none;
+          background: var(--ddd-theme-default-white);
+          display: block;
         }
         .select-button {
           background-color: var(--ddd-primary-8);
@@ -158,8 +160,8 @@ export class HaxUseCaseApp extends DDDSuper(I18NMixin(LitElement)) {
           background-color: var(--ddd-primary-6);
         }
         .active-card {
-          border: var(--ddd-border-xs) solid var(--ddd-primary-6);
-          border-color: var(--simple-colors-default-theme-amber-2);
+          border: 2px solid var(--simple-colors-default-theme-amber-7)!important;
+          background-color: var(--ddd-theme-default-skyMaxLight)!important;
           border-radius: var(--ddd-radius-md);
         }
         .button-row {
@@ -227,10 +229,9 @@ export class HaxUseCaseApp extends DDDSuper(I18NMixin(LitElement)) {
               ${this.filteredItems.length > 0
                 ? this.filteredItems.map(
                     (item, index) => html`
-                      <div
-                        class=${item === this.activeUseCase ? "active-card" : ""}
-                      >
-                        <a href="${item.demoLink}" target="_blank">
+                      <div>
+                        <a href="${item.demoLink}" target="_blank" 
+                        class="${index === this.activeUseCase ? "active-card" : ""}">
                           <use-case-card
                             .imageURL=${item.useCaseImage || ""}
                             .title=${item.useCaseTitle || ""}
@@ -244,9 +245,9 @@ export class HaxUseCaseApp extends DDDSuper(I18NMixin(LitElement)) {
                             class="select-button"
                             @click="${() => this.toggleSelection(index)}"
                           >
-                            ${item === this.activeUseCase ? "Selected" : "Select"}
+                            ${this.activeUseCase === index ? "Selected" : "Select"}
                           </button>
-                          ${item === this.activeUseCase
+                          ${this.activeUseCase === index
                             ? html`
                                 <button
                                   class="continue-button"
@@ -359,31 +360,38 @@ export class HaxUseCaseApp extends DDDSuper(I18NMixin(LitElement)) {
     this.requestUpdate();
   }
 
-  // Handle the "Continue" action
-  continueAction(index) {
-    const selectedItem = this.filteredItems[index];
-    if (selectedItem) {
-      console.log("Continuing with:", selectedItem);
-      // Implement the logic for continuing with the selected item
-    }
-  }
-
   toggleSelection(index) {
-    const selectedItem = this.filteredItems[index];
-    if (this.activeUseCase === selectedItem) {
-      // Deselect if already selected
-      this.activeUseCase = null;
+    if (this.activeUseCase === index) {
+      this.activeUseCase = false; // Deselect if the same card is clicked
     } else {
-      // Set the new active use case
-      this.activeUseCase = selectedItem;
-      console.log("Selected use case:", this.activeUseCase);
+      this.activeUseCase = index; // Select the new card
     }
     this.requestUpdate();
   }
 
   continueAction() {
-    if (this.activeUseCase) {
-      alert(`Continuing with use case: ${this.activeUseCase.useCaseTitle}`);
+    if (this.activeUseCase !== false) {
+      const selectedItem = this.filteredItems[this.activeUseCase];
+      alert(`Continuing with the selected use case: ${selectedItem.useCaseTitle}`);
+    }
+  }
+
+  resetFilters() {
+    this.searchQuery = "";
+    this.activeFilters = []; // Clear active filters
+    this.filteredItems = this.items; // Reset to show all items
+    this.requestUpdate(); // Trigger an update
+
+    // Uncheck checkboxes
+    const checkboxes = this.shadowRoot.querySelectorAll(
+      '.filter-section input[type="checkbox"]'
+    );
+    checkboxes.forEach((checkbox) => (checkbox.checked = false)); 
+
+    // Clear search bar
+    const searchInput = this.shadowRoot.querySelector('.filter-section input[type="text"]');
+    if (searchInput) {
+      searchInput.value = "";
     }
   }
 

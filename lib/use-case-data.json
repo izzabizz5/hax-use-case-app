@@ -4,10 +4,10 @@
     {
       "id": "1",
       "tag": ["Course", "Portfolio"],
-      "title": "Minimal",
-      "image": "https://i.pinimg.com/1200x/4c/cd/de/4ccdde704ab0ee55aea9c5eb4a000e0d.jpg",
-      "description": "A sleek and minimalistic design with a focus on simplicity, clean lines, and ample white space.",
-      "attributes": [
+      "title": "Whimsical",
+      "image": "https://i.pinimg.com/736x/f8/cc/0d/f8cc0d74b07fd209d51dca8c167058bc.jpg",
+      "description": "A whimsical design combining playful elements, soft colors, and a touch of fantasy.",
+      "cardAttributes": [
         {
           "icon": "icons:book",
           "label": "Easy Reading"
@@ -30,9 +30,9 @@
       "id": "2",
       "tag": ["Resume", "Blog"],
       "title": "Futuristic",
-      "image": "https://i.pinimg.com/736x/91/11/0f/91110f54c48f7196cf9af376416aada5.jpg",
+      "image": "https://i.pinimg.com/736x/91/f7/2e/91f72e8aabbe4afb20eab7f7ad1132a4.jpg",
       "description": "A cutting-edge, futuristic design featuring bold shapes, neon accents, and high-tech aesthetics.",
-      "attributes": [
+      "cardAttributes": [
         {
           "icon": "icons:book",
           "label": "Sound Available"
@@ -54,10 +54,10 @@
     {
       "id": "3",
       "tag": ["Portfolio", "Research Website"],
-      "title": "Joker",
-      "image": "https://i.pinimg.com/1200x/4c/cd/de/4ccdde704ab0ee55aea9c5eb4a000e0d.jpg",
-      "description": "A playful, mischievous design with bold colors and eccentric details to keep the audience entertained.",
-      "attributes": [
+      "title": "Sky",
+      "image": "https://i.pinimg.com/736x/aa/1c/59/aa1c59f999fcb7ec7a62a6c0e9d7b085.jpg",
+      "description": "A sky-inspired design featuring serene gradients, cloud motifs, and a sense of open space and calm.",
+      "cardAttributes": [
         {
           "icon": "icons:book",
           "label": "Sound Available"
@@ -80,9 +80,9 @@
       "id": "4",
       "tag": ["Course", "Blog"],
       "title": "Tropical",
-      "image": "https://i.pinimg.com/1200x/4c/cd/de/4ccdde704ab0ee55aea9c5eb4a000e0d.jpg",
+      "image": "https://i.pinimg.com/736x/0d/94/df/0d94dfc16f6540ccdac7a008e87183b6.jpg",
       "description": "A vibrant, tropical theme filled with bright, exotic colors, palm leaves, and sunny vibes.",
-      "attributes": [
+      "cardAttributes": [
         {
           "icon": "icons:book",
           "label": "Sound Available"
@@ -105,9 +105,9 @@
       "id": "5",
       "tag": ["Research Website", "Resume"],
       "title": "Neon",
-      "image": "https://i.pinimg.com/1200x/4c/cd/de/4ccdde704ab0ee55aea9c5eb4a000e0d.jpg",
-      "description": "A bold, neon-inspired design featuring glowing colors and dynamic contrasts perfect for showcasing your work.",
-      "attributes": [
+      "image": "https://i.pinimg.com/736x/63/dd/87/63dd8718123b910e597ae65c1e9e15db.jpg",
+      "description": "A bold, neon-inspired design featuring glowing colors and dynamic contrasts..",
+      "cardAttributes": [
         {
           "icon": "icons:book",
           "label": "Sound Available"
@@ -129,10 +129,10 @@
     {
       "id": "6",
       "tag": ["Portfolio", "Resume"],
-      "title": "Geometric",
-      "image": "https://i.pinimg.com/1200x/4c/cd/de/4ccdde704ab0ee55aea9c5eb4a000e0d.jpg",
-      "description": "A modern, geometric design that incorporates clean lines and abstract shapes for a professional, yet stylish look.",
-      "attributes": [
+      "title": "Night",
+      "image": "https://i.pinimg.com/736x/67/7a/93/677a9320ff9f9fcc474b23fbe810840d.jpg",
+      "description": "A sleek, night-themed design with dark backgrounds, elegant details, and modern geometric patterns.",
+      "cardAttributes": [
         {
           "icon": "icons:book",
           "label": "Sound Available"
@@ -155,9 +155,9 @@
       "id": "7",
       "tag": ["Blog", "Course"],
       "title": "Carnival",
-      "image": "https://i.pinimg.com/1200x/4c/cd/de/4ccdde704ab0ee55aea9c5eb4a000e0d.jpg",
-      "description": "A fun and energetic carnival-inspired design with bright colors, festive elements, and an overall lively feel.",
-      "attributes": [
+      "image": "https://i.pinimg.com/736x/6f/fc/07/6ffc07a60f2b934a351a0edcbe1a05fe.jpg",
+      "description": "A lively carnival-inspired design with vibrant colors, festive decorations, and a joyful atmosphere.",
+      "cardAttributes": [
         {
           "icon": "icons:book",
           "label": "Sound Available"
@@ -180,9 +180,9 @@
       "id": "8",
       "tag": ["Research Website", "Course"],
       "title": "Aurora",
-      "image": "https://i.pinimg.com/1200x/4c/cd/de/4ccdde704ab0ee55aea9c5eb4a000e0d.jpg",
-      "description": "Inspired by the aurora borealis, this theme features beautiful gradients, cool tones, and a calm, mystical vibe.",
-      "attributes": [
+      "image": "https://i.pinimg.com/736x/af/34/48/af3448719cdc3b1956bd325868437c4c.jpg",
+      "description": "An aurora borealis featuring beautiful gradients, cool tones, and a calm, mystical vibe.",
+      "cardAttributes": [
         {
           "icon": "icons:book",
           "label": "Sound Available"
@@ -205,9 +205,9 @@
       "id": "9",
       "tag": ["Portfolio", "Blog"],
       "title": "Floral",
-      "image": "https://i.pinimg.com/1200x/4c/cd/de/4ccdde704ab0ee55aea9c5eb4a000e0d.jpg",
-      "description": "A delicate and elegant design filled with floral elements, soft pastels, and a romantic, serene atmosphere.",
-      "attributes": [
+      "image": "https://i.pinimg.com/736x/55/a9/a9/55a9a90ef6dc65266280afdd47a74682.jpg",
+      "description": "A delicate and elegant design filled with floral elements, soft pastels, and a serene atmosphere.",
+      "cardAttributes": [
         {
           "icon": "icons:book",
           "label": "Sound Available"
@@ -228,4 +228,5 @@
     }
   ]
 }
+
 
