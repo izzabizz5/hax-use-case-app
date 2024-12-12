@@ -5,8 +5,7 @@
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
-
-import { UseCaseCard } from "./use-case-card.js";
+import '@haxtheweb/simple-icon/simple-icon.js';
 
 export class HaxUseCaseApp extends DDDSuper(I18NMixin(LitElement)) {
   static get tag() {
@@ -23,6 +22,7 @@ export class HaxUseCaseApp extends DDDSuper(I18NMixin(LitElement)) {
     this.errorMessage = "";
     this.loading = false;
     this.filters = [];
+    this.demoLink = "";
   }
 
   connectedCallback() {
@@ -40,18 +40,29 @@ export class HaxUseCaseApp extends DDDSuper(I18NMixin(LitElement)) {
       activeFilters: { type: Array },
       errorMessage: { type: String },
       loading: { type: Boolean },
-      filters: { type: Array }
+      filters: { type: Array },
+      demoLink: { type: String}
     };
   }
   static get styles() {
     return [
       super.styles,
       css`
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        html, body, :host {
+          overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
         :host {
           display: block;
           font-family: var(--ddd-font-navigation);
           background-color: var(--ddd-theme-default-background);
           color: var(--ddd-primary-4);
+          display: block;
         }
         /* Header */
         .header {
@@ -80,10 +91,10 @@ export class HaxUseCaseApp extends DDDSuper(I18NMixin(LitElement)) {
           font-weight: var(--ddd-font-weight-bold);
           color: var(--ddd-primary-4);
         }
-        .page-header p {
+        .page-header #hlogo {
           margin-top: var(--ddd-spacing-2);
-          font-size: var(--ddd-font-size-3xs);
-          color: var(--ddd-primary-5);
+          max-height: 48px;
+          max-width: 60px;
         }
 
         /* Content Layout */
@@ -93,7 +104,7 @@ export class HaxUseCaseApp extends DDDSuper(I18NMixin(LitElement)) {
           gap: var(--ddd-spacing-6);
         }
 
-        /* Sidebar */
+        /* Sidebar for Vertical Section */
         .filter-section {
           width: 240px;
           background: var(--ddd-theme-default-white);
@@ -134,6 +145,43 @@ export class HaxUseCaseApp extends DDDSuper(I18NMixin(LitElement)) {
           font-size: var(--ddd-font-size-3xs);
           cursor: pointer;
         }
+        /* Media Query for Small Screens */
+        @media (max-width: 545px) {
+          .content {
+            flex-direction: column; /* Stack content vertically */
+          }
+
+          .filter-section {
+            width: 100%; /* Full width of the viewport */
+            flex-direction: column; /* Horizontal layout */
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--ddd-spacing-4); /* Reduce padding for smaller screens */
+            gap: var(--ddd-spacing-2);
+            overflow: hidden;
+            box-sizing: border-box;
+          }
+
+          .filter-section h3 {
+            font-size: var(--ddd-font-size-3xs); /* Smaller font size for headings */
+            border: none; /* Remove bottom border */
+            padding: 0;
+          }
+
+          .filter-section input[type="text"] {
+            flex: 1; /* Allow search bar to expand */
+            margin-right: var(--ddd-spacing-2);
+          }
+
+          .filter-section label {
+            font-size: var(--ddd-font-size-3xs); /* Reduce label font size */
+          }
+
+          .reset-button {
+            padding: var(--ddd-spacing-1) var(--ddd-spacing-2); /* Smaller button size */
+          }
+      }
   
         /* Card Grid */
         .card-grid {
@@ -145,7 +193,11 @@ export class HaxUseCaseApp extends DDDSuper(I18NMixin(LitElement)) {
         .card-grid a {
           text-decoration: none;
           background: var(--ddd-theme-default-white);
+          border-radius: var(--ddd-radius-md);
+          margin: 0;
           display: block;
+          overflow: hidden;
+          max-width: 375px;
         }
         .select-button {
           background-color: var(--ddd-primary-8);
@@ -190,81 +242,81 @@ export class HaxUseCaseApp extends DDDSuper(I18NMixin(LitElement)) {
     return html`
       <!-- Header -->
       <div class="header">
-            <p>HAX LOGO</p>
-            <p>Merlin</p>
-            <p>Search Sites</p>
-          </div>
+        <simple-icon-lite id="hlogo" icon="hax:hax2022" ></simple-icon-lite>
+        <p>Merlin</p>
+        <p>Search Sites</p>
+        </div>
 
-          <!-- Page Header -->
-          <div class="page-header">
-            <h1>&lt; New Journey &gt;</h1>
-            <p>Pick a type of journey and mention templates to search for.</p>
-          </div>
+      <!-- Page Header -->
+      <div class="page-header">
+        <h1>&lt; New Journey &gt;</h1>
+        <p>Pick a type of journey and mention templates to search for.</p>
+      </div>
 
-          <!-- Content -->
-          <div class="content">
-            <!-- Sidebar Filters -->
-            <div class="filter-section">
-              <input type="text" placeholder="Search" @input="${this.handleSearch}" />
-              <h3>Template</h3>
-              ${this.filters.length > 0
-                ? this.filters.map(
-                    (filter) => html`
-                      <label>
-                        <input
-                          type="checkbox"
-                          @change="${() => this.toggleFilter(filter)}"
-                        />
-                        ${filter}
-                      </label>
-                    `
-                  )
-                : ""}
-              <button class="reset-button" @click="${this.resetFilters}">Reset Filters</button>
-              <h3>My Favorites</h3>
-            </div>
+      <!-- Content -->
+      <div class="content">
+        <!-- Sidebar Filters -->
+        <div class="filter-section">
+          <input type="text" placeholder="Search" @input="${this.handleSearch}" />
+          <h3>Template</h3>
+          ${this.filters.length > 0
+            ? this.filters.map(
+                (filter) => html`
+                  <label>
+                    <input
+                      type="checkbox"
+                      @change="${() => this.toggleFilter(filter)}"
+                    />
+                    ${filter}
+                  </label>
+                `
+              )
+            : ""}
+          <button class="reset-button" @click="${this.resetFilters}">Reset Filters</button>
+          <h3>My Favorites</h3>
+        </div>
 
-            <!-- Cards -->
-            <div class="card-grid">
-              ${this.filteredItems.length > 0
-                ? this.filteredItems.map(
-                    (item, index) => html`
-                      <div>
-                        <a href="${item.demoLink}" target="_blank" 
-                        class="${index === this.activeUseCase ? "active-card" : ""}">
-                          <use-case-card
-                            .imageURL=${item.useCaseImage || ""}
-                            .title=${item.useCaseTitle || ""}
-                            .description=${item.useCaseDescription || ""}
-                            .demo=${item.demoLink || ""}
-                            .useCaseAttributes=${item.useCaseAttributes || []}
-                          ></use-case-card>
-                        </a>
-                        <div class="button-row">
-                          <button
-                            class="select-button"
-                            @click="${() => this.toggleSelection(index)}"
-                          >
-                            ${this.activeUseCase === index ? "Selected" : "Select"}
-                          </button>
-                          ${this.activeUseCase === index
-                            ? html`
-                                <button
-                                  class="continue-button"
-                                  @click="${this.continueAction}"
-                                >
-                                  Continue
-                                </button>
-                              `
-                            : ""}
-                        </div>
-                      </div>
-                    `
-                  )
-                : html`<p>No templates match the filters specified.</p>`}
-            </div>
-          </div>
-    `;
+        <!-- Cards -->
+        <div class="card-grid">
+          ${this.filteredItems.length > 0
+            ? this.filteredItems.map(
+                (item, index) => html`
+                  <div>
+                    <a href="${item.demoLink}" target="_blank" 
+                    class="${index === this.activeUseCase ? "active-card" : ""}">
+                      <use-case-card
+                        .imageURL=${item.useCaseImage || ""}
+                        .title=${item.useCaseTitle || ""}
+                        .description=${item.useCaseDescription || ""}
+                        .demo=${item.demoLink || ""}
+                        .iconImage=${item.cardAttributes || ""}
+                      ></use-case-card>
+                    </a>
+                    <div class="button-row">
+                      <button
+                        class="select-button"
+                        @click="${() => this.toggleSelection(index)}"
+                      >
+                        ${this.activeUseCase === index ? "Selected" : "Select"}
+                      </button>
+                      ${this.activeUseCase === index
+                        ? html`
+                            <button
+                              class="continue-button"
+                              @click="${this.continueAction}"
+                            >
+                              Continue
+                            </button>
+                          `
+                        : ""}
+                    </div>
+                  </div>
+                `
+              )
+            : html`<p>No templates match the filters specified.</p>`}
+        </div>
+      </div>
+`;
   }
   
   updateResults() {
@@ -286,8 +338,7 @@ export class HaxUseCaseApp extends DDDSuper(I18NMixin(LitElement)) {
           useCaseTitle: item.title,
           useCaseImage: item.image,
           useCaseDescription: item.description,
-          demoLink: item.demo,
-          useCaseAttributes: item.attributes,
+          useCaseIcon: item.cardAttributes,
           useCaseTag: item.tag
         }));
         this.filteredItems = this.items;

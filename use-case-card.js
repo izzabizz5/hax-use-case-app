@@ -9,7 +9,7 @@ constructor() {
     this.description = "";
     this.imageURL = "";
     this.demo = "";
-    this.cardAttributes = [];
+    this.iconImage = "";
   }
 
   static get properties() {
@@ -20,7 +20,7 @@ constructor() {
         description: { type: String },
         imageURL: { type: String },
         demo: { type: String },
-        cardAttributes: { type: Array }
+        iconImage: {type: String}
     };
   }
 
@@ -30,11 +30,11 @@ constructor() {
       css`
         /* Cards */
         .card {
-        border-radius: var(--ddd-radius-md);
         border: var(--ddd-border-xs) solid var(--ddd-primary-4);
+        border-radius: var(--ddd-radius-md);
         box-shadow: var(--ddd-boxShadow-sm);
-        max-width: 375px;
-        max-height: 375px;
+        max-width:375px;
+        max-height:375px;
         overflow: hidden;
         display: flex;
         flex-direction: column;
@@ -88,6 +88,9 @@ constructor() {
       .card button:hover {
         background-color: var(--ddd-primary-6);
       }
+      .card #demo, #haxIcon {
+
+      }
       `,
     ];
   }
@@ -98,8 +101,8 @@ constructor() {
         <img src="${this.imageURL}">
         <h3>${this.title}</h3>
         <p>${this.description}</p>
-        <a href="${this.demo}" target="_blank">Demo -> </a>
-        ${this.cardAttributes.map((item) => html`<simple-icon-lite icon="${item.icon}" title="${item.title}"></simple-icon-lite>`)}
+        <a id="demo" href="https://hax.cloud?use-case-${this.title}" target="_blank">Demo -> </a>
+        <simple-icon-lite id="haxIcon" icon="${this.iconImage}" title="${this.iconImage}" dir="ltr" aria-hidden="true" id="icon" part="icon" style="display:inline-block"></simple-icon-lite>
       </div>
     `;
   }
