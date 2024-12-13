@@ -7,7 +7,11 @@
       "title": "Whimsical",
       "image": "https://i.pinimg.com/736x/f8/cc/0d/f8cc0d74b07fd209d51dca8c167058bc.jpg",
       "description": "A whimsical design combining playful elements, soft colors, and a touch of fantasy.",
-      "cardAttributes": "icons:book"
+      "cardAttributes": [
+        { "icon": "icons:favorite", "tooltip": "Mark as Favorite" },
+        { "icon": "icons:accessibility", "tooltip": "Easy Reading" },
+        { "icon": "icons:attachment", "tooltip": "PDF Included" }
+      ]
     },
     {
       "id": "2",
@@ -15,15 +19,23 @@
       "title": "Futuristic",
       "image": "https://i.pinimg.com/736x/91/f7/2e/91f72e8aabbe4afb20eab7f7ad1132a4.jpg",
       "description": "A cutting-edge, futuristic design featuring bold shapes, neon accents, and high-tech aesthetics.",
-      "cardAttributes": "icons:book"
+      "cardAttributes": [
+        { "icon": "icons:favorite", "tooltip": "Mark as Favorite" },
+        { "icon": "icons:lightbulb-outline", "tooltip": "Dark Mode" },
+        { "icon": "icons:file-download", "tooltip": "Download Available" }
+      ] 
     },
     {
       "id": "3",
       "tag": ["Portfolio", "Research Website"],
       "title": "Sky",
       "image": "https://i.pinimg.com/736x/aa/1c/59/aa1c59f999fcb7ec7a62a6c0e9d7b085.jpg",
-      "description": "A sky-inspired design featuring serene gradients, cloud motifs, and a sense of open space and calm.",
-      "cardAttributes": "icons:book"
+      "description": "A sky-inspired design with serene gradients, cloud motifs, and a sense of open space and calm.",
+      "cardAttributes": [
+        { "icon": "icons:favorite", "tooltip": "Mark as Favorite" },
+        { "icon": "icons:speaker-notes", "tooltip": "Sound Available" },
+        { "icon": "icons:attachment", "tooltip": "PDF Included" }
+      ] 
     },
     {
       "id": "4",
@@ -31,15 +43,23 @@
       "title": "Tropical",
       "image": "https://i.pinimg.com/736x/0d/94/df/0d94dfc16f6540ccdac7a008e87183b6.jpg",
       "description": "A vibrant, tropical theme filled with bright, exotic colors, palm leaves, and sunny vibes.",
-      "cardAttributes": "icons:book"
+      "cardAttributes": [
+        { "icon": "icons:favorite", "tooltip": "Mark as Favorite" },
+        { "icon": "icons:visibility", "tooltip": "Good" },
+        { "icon": "icons:accessibility", "tooltip": "Easy Reading" }
+      ] 
     },
     {
       "id": "5",
       "tag": ["Research Website", "Resume"],
       "title": "Neon",
       "image": "https://i.pinimg.com/736x/63/dd/87/63dd8718123b910e597ae65c1e9e15db.jpg",
-      "description": "A bold, neon-inspired design featuring glowing colors and dynamic contrasts..",
-      "cardAttributes": "icons:book"
+      "description": "A bold, neon-inspired design featuring glowing colors and dynamic contrasts.",
+      "cardAttributes": [
+        { "icon": "icons:favorite", "tooltip": "Mark as Favorite" },
+        { "icon": "icons:hourglass-full", "tooltip": "3 Minute Read" },
+        { "icon": "icons:speaker-notes", "tooltip": "Sound Available" }
+      ] 
     },
     {
       "id": "6",
@@ -47,15 +67,23 @@
       "title": "Night",
       "image": "https://i.pinimg.com/736x/67/7a/93/677a9320ff9f9fcc474b23fbe810840d.jpg",
       "description": "A sleek, night-themed design with dark backgrounds, elegant details, and modern geometric patterns.",
-      "cardAttributes": "icons:book"
+      "cardAttributes": [
+        { "icon": "icons:favorite", "tooltip": "Mark as Favorite" },
+        { "icon": "icons:lightbulb-outline", "tooltip": "Dark Mode" },
+        { "icon": "icons:accessibility", "tooltip": "Easy Reading" }
+      ] 
     },
     {
       "id": "7",
       "tag": ["Blog", "Course"],
       "title": "Carnival",
       "image": "https://i.pinimg.com/736x/6f/fc/07/6ffc07a60f2b934a351a0edcbe1a05fe.jpg",
-      "description": "A lively carnival-inspired design with vibrant colors, festive decorations, and a joyful atmosphere.",
-      "cardAttributes": "icons:book"
+      "description": "A lively carnival-inspired design with vibrant colors, festive decor, and a joyful atmosphere.",
+      "cardAttributes": [
+        { "icon": "icons:favorite", "tooltip": "Mark as Favorite" },
+        { "icon": "icons:hourglass-full", "tooltip": "3 Minute Read" },
+        { "icon": "icons:visibility", "tooltip": "Good" }
+      ] 
     },
     {
       "id": "8",
@@ -63,7 +91,11 @@
       "title": "Aurora",
       "image": "https://i.pinimg.com/736x/af/34/48/af3448719cdc3b1956bd325868437c4c.jpg",
       "description": "An aurora borealis featuring beautiful gradients, cool tones, and a calm, mystical vibe.",
-      "cardAttributes": "icons:book"
+      "cardAttributes": [
+        { "icon": "icons:favorite", "tooltip": "Mark as Favorite" },
+        { "icon": "icons:attachment", "tooltip": "PDF Included" },
+        { "icon": "icons:lightbulb-outline", "tooltip": "Dark Mode" }
+      ] 
     },
     {
       "id": "9",
@@ -71,7 +103,12 @@
       "title": "Floral",
       "image": "https://i.pinimg.com/736x/55/a9/a9/55a9a90ef6dc65266280afdd47a74682.jpg",
       "description": "A delicate and elegant design filled with floral elements, soft pastels, and a serene atmosphere.",
-      "cardAttributes": "icons:book"
+      "cardAttributes": [
+        { "icon": "icons:favorite", "tooltip": "Mark as Favorite" },
+        { "icon": "icons:file-download", "tooltip": "Download Available" },
+        { "icon": "icons:hourglass-full", "tooltip": "3 Minute Read" }
+
+      ] 
     }
   ]
 }

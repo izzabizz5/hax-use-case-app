@@ -9,7 +9,7 @@ constructor() {
     this.description = "";
     this.imageURL = "";
     this.demo = "";
-    this.iconImage = "";
+    this.iconImage = [];
   }
 
   static get properties() {
@@ -20,7 +20,7 @@ constructor() {
         description: { type: String },
         imageURL: { type: String },
         demo: { type: String },
-        iconImage: {type: String}
+        iconImage: {type: Array }
     };
   }
 
@@ -62,15 +62,16 @@ constructor() {
         line-height: var(--ddd-lh-150);
         margin: 0 0 var(--ddd-spacing-4) 0;
       }
-      .card a {
+      .card #demo {
         position: absolute; /* Position the demo link */
         bottom: var(--ddd-spacing-2); /* Align to the bottom */
         right: var(--ddd-spacing-2); /* Align to the right */
         font-size: var(--ddd-font-size-3xs);
         text-decoration: none;
         color: var(--ddd-primary-8);
-        padding: var(--ddd-spacing-2) var(--ddd-spacing-3);
+        padding: var(--ddd-spacing-1) var(--ddd-spacing-1);
         opacity: 0.8;
+        gap: var(--ddd-spacing-3);
       }
       .card a:hover {
         text-decoration: none;
@@ -89,8 +90,19 @@ constructor() {
         background-color: var(--ddd-primary-6);
       }
       .card #demo, #haxIcon {
-
+        flex-wrap: wrap;
+        flex-direction: horizontal;
       }
+      #haxIcons {
+        position: absolute; /* Position the demo link */
+        bottom: var(--ddd-spacing-2); /* Align to the bottom */
+        left: var(--ddd-spacing-2); /* Align to the right */
+        padding: var(--ddd-spacing-1) var(--ddd-spacing-1);
+        opacity: 0.8;
+        gap: var(--ddd-spacing-3);
+        color: var(--ddd-primary-8);
+      }
+      
       `,
     ];
   }
@@ -102,7 +114,16 @@ constructor() {
         <h3>${this.title}</h3>
         <p>${this.description}</p>
         <a id="demo" href="https://hax.cloud?use-case-${this.title}" target="_blank">Demo -> </a>
-        <simple-icon-lite id="haxIcon" icon="${this.iconImage}" title="${this.iconImage}" dir="ltr" aria-hidden="true" id="icon" part="icon" style="display:inline-block"></simple-icon-lite>
+        <div id="haxIcons">
+        ${this.iconImage.map(
+          (icon) => html`
+            <simple-icon-lite
+              icon="${icon.icon}" 
+              title="${icon.tooltip || ''}" 
+            ></simple-icon-lite>
+          `
+        )}
+        </div>
       </div>
     `;
   }

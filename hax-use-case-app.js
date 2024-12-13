@@ -72,10 +72,20 @@ export class HaxUseCaseApp extends DDDSuper(I18NMixin(LitElement)) {
           background-color: var(--ddd-primary-4);
           color: var(--ddd-theme-default-white);
           font-size: var(--ddd-font-size-3);
-        }
-        .header p {
           padding: var(--ddd-spacing-6);
-          margin: var(--ddd-spacing-4);
+        }
+
+        .header p {
+          margin: 0; 
+          padding: 0 var(--ddd-spacing-6); /* Horizontal padding only */
+        }
+
+        .header #hlogo {
+          height: var(--simple-icon-height, 24px);
+          width: var(--simple-icon-width, 24px);
+          display: block;
+          margin: 0 var(--ddd-spacing-6); 
+          object-fit: contain; 
         }
 
         /* Page Header */
@@ -91,10 +101,10 @@ export class HaxUseCaseApp extends DDDSuper(I18NMixin(LitElement)) {
           font-weight: var(--ddd-font-weight-bold);
           color: var(--ddd-primary-4);
         }
-        .page-header #hlogo {
+        .page-header p {
           margin-top: var(--ddd-spacing-2);
-          max-height: 48px;
-          max-width: 60px;
+          color: var(--ddd-primary-4);
+          font-size: var(--ddd-font-size-2);
         }
 
         /* Content Layout */
@@ -148,38 +158,33 @@ export class HaxUseCaseApp extends DDDSuper(I18NMixin(LitElement)) {
         /* Media Query for Small Screens */
         @media (max-width: 545px) {
           .content {
-            flex-direction: column; /* Stack content vertically */
+            flex-direction: column; 
           }
-
           .filter-section {
-            width: 100%; /* Full width of the viewport */
-            flex-direction: column; /* Horizontal layout */
+            width: 100%; 
+            flex-direction: column; 
             flex-wrap: wrap;
-            align-items: center;
             justify-content: space-between;
-            padding: var(--ddd-spacing-4); /* Reduce padding for smaller screens */
+            padding: var(--ddd-spacing-4);
             gap: var(--ddd-spacing-2);
             overflow: hidden;
             box-sizing: border-box;
           }
-
           .filter-section h3 {
-            font-size: var(--ddd-font-size-3xs); /* Smaller font size for headings */
-            border: none; /* Remove bottom border */
+            font-size: var(--ddd-font-size-3xs);
+            border: none;
             padding: 0;
           }
-
           .filter-section input[type="text"] {
-            flex: 1; /* Allow search bar to expand */
+            flex: 1; 
             margin-right: var(--ddd-spacing-2);
+            align-items: right;
           }
-
           .filter-section label {
-            font-size: var(--ddd-font-size-3xs); /* Reduce label font size */
+            font-size: var(--ddd-font-size-3xs); 
           }
-
           .reset-button {
-            padding: var(--ddd-spacing-1) var(--ddd-spacing-2); /* Smaller button size */
+            padding: var(--ddd-spacing-1) var(--ddd-spacing-2); 
           }
       }
   
@@ -242,10 +247,10 @@ export class HaxUseCaseApp extends DDDSuper(I18NMixin(LitElement)) {
     return html`
       <!-- Header -->
       <div class="header">
-        <simple-icon-lite id="hlogo" icon="hax:hax2022" ></simple-icon-lite>
+        <simple-icon-lite id="hlogo" icon="hax:hax2022"></simple-icon-lite>
         <p>Merlin</p>
         <p>Search Sites</p>
-        </div>
+      </div>
 
       <!-- Page Header -->
       <div class="page-header">
@@ -289,7 +294,7 @@ export class HaxUseCaseApp extends DDDSuper(I18NMixin(LitElement)) {
                         .title=${item.useCaseTitle || ""}
                         .description=${item.useCaseDescription || ""}
                         .demo=${item.demoLink || ""}
-                        .iconImage=${item.cardAttributes || ""}
+                        .iconImage=${item.useCaseIcon || []}
                       ></use-case-card>
                     </a>
                     <div class="button-row">
@@ -338,7 +343,10 @@ export class HaxUseCaseApp extends DDDSuper(I18NMixin(LitElement)) {
           useCaseTitle: item.title,
           useCaseImage: item.image,
           useCaseDescription: item.description,
-          useCaseIcon: item.cardAttributes,
+          useCaseIcon: item.cardAttributes.map(attribute => ({
+            icon: attribute.icon,
+            tooltip: attribute.tooltip
+          })),
           useCaseTag: item.tag
         }));
         this.filteredItems = this.items;
